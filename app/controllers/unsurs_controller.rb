@@ -8,12 +8,12 @@ class UnsursController < ApplicationController
     render json: @unsurs
   end
 
-  # GET /unsurs/1
+  # GET /unsur/1
   def show
     render json: @unsur
   end
 
-  # POST /unsurs
+  # POST /unsur
   def create
     @unsur = Unsur.new(unsur_params)
 
@@ -24,7 +24,7 @@ class UnsursController < ApplicationController
     end
   end
 
-  # PATCH/PUT /unsurs/1
+  # PATCH/PUT /unsur/1
   def update
     if @unsur.update(unsur_params)
       render json: @unsur
@@ -33,9 +33,29 @@ class UnsursController < ApplicationController
     end
   end
 
-  # DELETE /unsurs/1
+  # DELETE /unsur/1
   def destroy
     @unsur.destroy
+  end
+
+  # GET /search
+  def search
+    key = "%#{params[:key]}%"
+    @unsurs = Unsur.select('id, simbol, nama_unsur, golongan, periode, icon').where('simbol LIKE ? OR nama_unsur LIKE ? OR nomor_atom LIKE ? OR masa_atom LIKE ? OR deskripsi LIKE ?', key, key, key, key, key).order(:nama_unsur)
+
+    render json: @unsurs
+  end
+
+  # GET /golongan/1
+  def golongan
+    @unsur = Unsur.find(params[:golongan])
+    render json: @unsur
+  end
+
+  # GET /periode/1
+  def periode
+    @unsur = Unsur.find(params[:periode])
+    render json: @unsur
   end
 
   private

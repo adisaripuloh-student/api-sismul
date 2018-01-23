@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :unsurs
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # auth
   post 'authenticate', to: 'authentication#authenticate'
+  # android
+  get 'unsurs', to: 'unsurs#index'
+  get 'unsur/:id', to: 'unsurs#show'
+  get 'search/:key', to: 'unsurs#search'
+  get 'periode/:periode', to: 'unsurs#periode'
+  get 'golongan/:golongan', to: 'unsurs#golongan'
 end
