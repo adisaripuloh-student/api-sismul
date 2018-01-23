@@ -1,0 +1,2 @@
+class Unsur < ApplicationRecord
+end

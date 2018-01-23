@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  simbol: MyString
+  nama_unsur: MyString
+  masa_atom: 1
+  nomor_atom: 1
+  deskripsi: MyText
+  golongan: 1
+  periode: 1
+  icon: MyString
+
+two:
+  simbol: MyString
+  nama_unsur: MyString
+  masa_atom: 1
+  nomor_atom: 1
+  deskripsi: MyText
+  golongan: 1
+  periode: 1
+  icon: MyString
